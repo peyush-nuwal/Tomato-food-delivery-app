@@ -5,7 +5,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   //url link
-  const url = "http://localhost:4000";
+  const url = "https://tomato-backend-flax.vercel.app";
 
   //state variables
   const [cartItems, setCartItems] = useState({});
