@@ -1,11 +1,13 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose';
 
-export const connectToDB =async ()=>{
-     await mongoose.connect('mongodb+srv://songoku:thalaForReason@universe07.fyraszh.mongodb.net/?retryWrites=true&w=majority&appName=universe07').then(()=>{
-        console.log("database connect sucessfully")
-     }).catch((err)=>{
-        console.log("unable to connect to db"+err)
-     })
-}
-
-
+export const connectToDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGODB_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("Database connected successfully");
+    } catch (err) {
+        console.error("Unable to connect to the database:", err);
+    }
+};
