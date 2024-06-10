@@ -39,7 +39,8 @@ app.use((err, req, res, next) => {
 
 
 
-
+//favicon error
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 
   
