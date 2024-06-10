@@ -7,7 +7,7 @@ import Orders from './pages/Orders/Orders'
 import { ToastContainer} from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 function App() {
-  const url="https://tomato-backend-flax.vercel.app/"; 
+  const url="https://tomato-backend-flax.vercel.app"; 
   return (
     <div>
       <ToastContainer />
