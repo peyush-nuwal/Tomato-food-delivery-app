@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 //order place for food
 const placeOrder = async (req, res) => {
-    const frontendUrl = `http://https://tomato-food-delivery-app-six.vercel.app`
+    const frontendUrl = `tomato-food-delivery-95dke13kj-nuwal-peyush.vercel.app`
     try {
         const newOrder = new orderModel({
             userId: req.body.userId,
