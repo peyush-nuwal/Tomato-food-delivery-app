@@ -33,23 +33,16 @@ app.get("/",(req,res)=>{
 })
 
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
+;
 
 
-export const handler = async (event, context) => {
-  // Handle serverless function logic here, e.g., API endpoints
-  const app = await import('./app.js');
-  return app.handler(event, context);
-};
+
+
 //favicon error
 
-if (process.env.NODE_ENV !== 'production') {
+
   app.listen(port, () => {
       console.log(`server is running on http://localhost:${port}`);
   });
-}
 
-// 
+
