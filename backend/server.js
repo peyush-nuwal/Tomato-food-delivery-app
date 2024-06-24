@@ -38,7 +38,11 @@ app.use((err, req, res, next) => {
 });
 
 
-
+export const handler = async (event, context) => {
+  // Handle serverless function logic here, e.g., API endpoints
+  const app = await import('./app.js');
+  return app.handler(event, context);
+};
 //favicon error
 
   
