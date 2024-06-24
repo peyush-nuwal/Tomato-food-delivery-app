@@ -5,7 +5,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   //url link
-  const url = "https://tomato-backend-flax.vercel.app";
+  const url = "https://tomato-food-delivery-app-1.onrender.com";
 
   //state variables
   const [cartItems, setCartItems] = useState({});
