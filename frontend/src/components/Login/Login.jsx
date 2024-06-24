@@ -3,6 +3,7 @@ import "./Login.css";
 import { assets } from "../../assets/assets.js";
 import { StoreContext } from "../../context/store.jsx";
 import axios from "axios";
+import { toast,Bounce } from "react-toastify";
 const Login = ({ setShowLogin }) => {
    //all state variables  
   const [data, setData] = useState({
@@ -52,9 +53,31 @@ const Login = ({ setShowLogin }) => {
          setToken(res.data.token)
          localStorage.setItem("token",res.data.token)
          setShowLogin(false)
+         toast.success('Login successfully', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
+          });
        }
        else{
          alert(res.data.message)
+         toast.error('user dont exist', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
+          });
        }
 
       
