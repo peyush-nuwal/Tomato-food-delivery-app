@@ -19,9 +19,9 @@ app.use(cors())
 
 // api endpoints
 app.use(express.json())
+app.use(express.static('public'));
 app.use("/api/food",foodRouter)
 app.use("/image",express.static("uploads"))
-app.use(express.static('public'));
 app.use('/api/user',userRouter)
 app.use('/api/cart',cartRouter)
 app.use('/api/order',orderRouter)
