@@ -45,10 +45,10 @@ export const handler = async (event, context) => {
 };
 //favicon error
 
-  
-app.listen(port,()=>{
-    console.log(`server is running on http://localhost:${port}`)
-})
-
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+      console.log(`server is running on http://localhost:${port}`);
+  });
+}
 
 // 
