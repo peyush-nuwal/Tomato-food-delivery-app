@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Add = ({url}) => {
   
-  const [image, setImage] = useState(false);
+  const [image, setImage] = useState(null);
   const [data, setData] = useState({
     name: "",
     description: "",
@@ -67,6 +67,16 @@ const Add = ({url}) => {
       
     } catch (error) {
       console.error(error);
+      toast.error(response.data.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
   };
 
@@ -99,6 +109,7 @@ const Add = ({url}) => {
             type="text"
             name="name"
             placeholder="Type Here"
+            required
           />
         </div>
         <div className="add-product-description flex-col">
@@ -109,6 +120,7 @@ const Add = ({url}) => {
             name="description"
             id=""
             rows="3"
+            required
             placeholder="Write content here"
           ></textarea>
         </div>
@@ -134,6 +146,7 @@ const Add = ({url}) => {
               type="number"
               name="price"
               placeholder="100Rs"
+              required
             />
           </div>
         </div>
