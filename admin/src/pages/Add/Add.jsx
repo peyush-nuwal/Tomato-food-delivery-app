@@ -1,12 +1,11 @@
 import "./Add.css";
 import { assets } from "../../assets/assets";
-import {  useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-const Add = ({url}) => {
-  
+const Add = ({ url }) => {
   const [image, setImage] = useState(null);
   const [data, setData] = useState({
     name: "",
@@ -33,38 +32,36 @@ const Add = ({url}) => {
     try {
       const response = await axios.post(`${url}/api/food/add`, formData);
       console.log(response.data);
-          if(response.data.success){
-            setData({
-              name: "",
-              description: "",
-              price: "",
-              category: "salad",
-            });
-            setImage(false);
-            toast.success(response.data.message, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-          }else{
-            toast.error(response.data.message, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-
-        }
-      
+      if (response.data.success) {
+        setData({
+          name: "",
+          description: "",
+          price: "",
+          category: "salad",
+        });
+        setImage(false);
+        toast.success(response.data.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      } else {
+        toast.error(response.data.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
     } catch (error) {
       console.error(error);
       toast.error(response.data.message, {
@@ -127,7 +124,7 @@ const Add = ({url}) => {
         <div className="add-category-price">
           <div className="add-category flex-col">
             <p>Product category</p>
-            <select name="category" onChange={onChangeHandler}>
+            <select name="category" value={data.category} onChange={onChangeHandler}>
               <option value="Salad">Salad</option>
               <option value="Rolls">Rolls</option>
               <option value="Deserts">Deserts</option>
