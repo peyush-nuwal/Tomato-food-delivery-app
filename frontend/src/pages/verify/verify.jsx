@@ -24,6 +24,8 @@ const verify = () => {
 
       useEffect(() => {
         verifyPay()
+
+   
       }, [])
       
     
