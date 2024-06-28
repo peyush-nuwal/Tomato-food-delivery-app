@@ -14,17 +14,14 @@ const verify = () => {
       const verifyPay=async()=>{
         try {
           
-          const res=await axios.post(url+"/api/order/verify",{success,orderId})
+           const res=await axios.post(url+"/api/order/verify",{success,orderId})
         } catch (error) {
           console.log(error+"white fetch data")
         }
 
-         if(res.data.success){
-                navigate("/MyOrders")
-         }
-         else{
-            navigate("/")
-         }
+        
+             await navigate("/MyOrders")
+         
       }
 
       useEffect(() => {
