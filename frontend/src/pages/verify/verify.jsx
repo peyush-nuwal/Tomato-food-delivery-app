@@ -12,7 +12,12 @@ const verify = () => {
       const navigate=useNavigate();
       
       const verifyPay=async()=>{
-         const res=await axios.post(url+"/api/order/verify",{success,orderId})
+        try {
+          
+          const res=await axios.post(url+"/api/order/verify",{success,orderId})
+        } catch (error) {
+          console.log(error+"white fetch data")
+        }
 
          if(res.data.success){
                 navigate("/MyOrders")
